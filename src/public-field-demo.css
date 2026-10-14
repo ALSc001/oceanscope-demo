@@ -1,0 +1,25 @@
+.public-field-demo { min-width: 0; padding: 20px 22px 32px; }
+.public-field-intro { display: flex; justify-content: space-between; gap: 24px; align-items: center; margin-bottom: 14px; }
+.public-field-intro h1 { font-size: 26px; letter-spacing: -.035em; margin: 5px 0 8px; }
+.public-field-intro p, .public-field-case-summary p { margin: 0; color: #526778; line-height: 1.5; }
+.public-field-intro > label { display: grid; gap: 7px; min-width: 280px; font-size: 12px; font-weight: 600; }
+.public-field-intro select { width: 100%; padding: 10px; border: 1px solid #c7d7df; border-radius: 8px; background: white; color: #193443; }
+.public-field-tag { display: block; color: #217684; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.public-field-note, .public-field-samples { padding: 11px 14px; border: 1px solid #d5e5e8; background: #edf6f7; border-radius: 8px; font-size: 12px; line-height: 1.5; color: #315e68; }
+.public-field-case-summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr); align-items: center; gap: 24px; margin: 20px 0 14px; }
+.public-field-case-summary h2 { margin: 5px 0 8px; font-size: 18px; }
+.public-field-provenance { font-size: 12px; line-height: 1.55; }
+.public-field-provenance dl { margin: 10px 0; }
+.public-field-provenance dl > div { margin-bottom: 8px; }
+.public-field-provenance dt { font-weight: 650; }
+.public-field-provenance dd { margin: 2px 0 0; overflow-wrap: anywhere; color: #526778; }
+.public-field-limitations { padding: 16px; margin-top: 16px; background: #f6f8fa; border: 1px solid #dce4e9; border-radius: 8px; font-size: 12px; line-height: 1.65; }
+.public-field-limitations summary { cursor: pointer; font-weight: 650; }
+.public-field-limitations ul { padding-left: 18px; }
+.public-field-demo .field-workbench { min-width: 0; }
+@media (max-width: 850px) {
+  .public-field-demo { padding: 16px 12px; }
+  .public-field-intro { flex-direction: column; align-items: stretch; gap: 16px; }
+  .public-field-intro > label { min-width: 0; }
+  .public-field-case-summary { grid-template-columns: 1fr; gap: 12px; }
+}

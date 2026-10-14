@@ -103,6 +103,14 @@
             "bytes": 27525816
           },
           {
+            "frame": 1002,
+            "bytes": 27525816
+          },
+          {
+            "frame": 1003,
+            "bytes": 27525816
+          },
+          {
             "frame": 1025,
             "bytes": 27525816
           },
@@ -8811,6 +8819,8 @@
       },
       "frameUrls": {
         "1001": "/data/fields/da3-gt-free/1001.ocfld.gz",
+        "1002": "/data/fields/da3-gt-free/1002.ocfld.gz",
+        "1003": "/data/fields/da3-gt-free/1003.ocfld.gz",
         "1025": "/data/fields/da3-gt-free/1025.ocfld.gz",
         "1049": "/data/fields/da3-gt-free/1049.ocfld.gz",
         "1073": "/data/fields/da3-gt-free/1073.ocfld.gz",
@@ -8855,6 +8865,8 @@
       },
       "sampledFrames": [
         1001,
+        1002,
+        1003,
         1025,
         1049,
         1073,
@@ -9035,6 +9047,14 @@
         "frames": [
           {
             "frame": 1001,
+            "bytes": 66061656
+          },
+          {
+            "frame": 1002,
+            "bytes": 66061656
+          },
+          {
+            "frame": 1003,
             "bytes": 66061656
           },
           {
@@ -10044,6 +10064,8 @@
       },
       "frameUrls": {
         "1001": "/data/fields/gt-fields/1001.ocfld.gz",
+        "1002": "/data/fields/gt-fields/1002.ocfld.gz",
+        "1003": "/data/fields/gt-fields/1003.ocfld.gz",
         "1049": "/data/fields/gt-fields/1049.ocfld.gz",
         "1096": "/data/fields/gt-fields/1096.ocfld.gz"
       },
@@ -10116,6 +10138,8 @@
       },
       "sampledFrames": [
         1001,
+        1002,
+        1003,
         1049,
         1096
       ],

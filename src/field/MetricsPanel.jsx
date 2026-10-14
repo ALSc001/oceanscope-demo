@@ -1,0 +1,16 @@
+import {useI18n} from '../i18n.jsx';
+import React from 'react';
+
+const LABELS={mae:'MAE',rmse:'RMSE',maxAbsoluteError:'Maximum absolute error',nearSurfaceMae:'Near-surface MAE',signAccuracy:'Sign accuracy',fluidIoU:'Fluid IoU',dice:'Dice',symmetricMeanSurfaceDistance:'Symmetric mean surface distance',hd95:'HD95',meanEpe:'Mean EPE',epeRmse:'EPE RMSE',epeP95:'EPE P95',relativeL2:'Relative L2',meanCosineSimilarity:'Mean cosine similarity',meanAngularErrorDegrees:'Mean angular error',divergenceMae:'Divergence MAE',coverage:'Coverage',validCount:'Valid voxels'};
+const shown=['nearSurfaceMae','rmse','fluidIoU','meanEpe','epeP95','relativeL2','coverage','mae','maxAbsoluteError','signAccuracy','dice','symmetricMeanSurfaceDistance','hd95','epeRmse','componentMae','componentRmse','meanCosineSimilarity','meanAngularErrorDegrees','divergenceMae','validCount','nonFiniteCount','nearSurfaceCount','surfaceSampleCount','angularExcludedCount','divergenceStencilCount','trustedTau','effectiveBand'];
+Object.assign(LABELS,{componentMae:'Component MAE (x, y, z)',componentRmse:'Component RMSE (x, y, z)',nonFiniteCount:'Non-finite pairs excluded',nearSurfaceCount:'Near-surface voxels',surfaceSampleCount:'Surface samples (pooled)',angularExcludedCount:'Angular exclusions',divergenceStencilCount:'Divergence stencils',trustedTau:'Trusted truncation τ',effectiveBand:'Effective band'});
+
+export default function MetricsPanel({metrics,group,unit}){
+ const {tr,language}=useI18n();
+
+  const values=metrics?.[group];
+  const primary=group==='sdf'?['mae','rmse','fluidIoU','coverage']:['meanEpe','epeRmse','coverage'];
+  const visible=values?shown.filter(key=>values[key]!==undefined):[];
+  const metric=key=><div key={key}><span>{tr(LABELS[key])}</span><strong>{values[key]===null?tr("Not available"):Array.isArray(values[key])?values[key].map(v=>v==null?'N/A':Number(v).toPrecision(4)).join(' / '):typeof values[key]==='number'?values[key].toLocaleString(undefined,key.endsWith('Count')?{}:{maximumSignificantDigits:5}):String(values[key])}</strong><small>{['mae','rmse','maxAbsoluteError','nearSurfaceMae','symmetricMeanSurfaceDistance','hd95','meanEpe','epeRmse','epeP95','componentMae','componentRmse','trustedTau','effectiveBand'].includes(key)?unit:key==='coverage'?tr("fraction"):key==='meanAngularErrorDegrees'?tr("degrees"):key==='divergenceMae'?(unit==='m/s'?tr("1/s"):tr("velocity / length")):''}</small></div>;
+  return <aside className="metrics-panel"><h3>{tr("Frame metrics")}</h3>{values?.notice&&<p role="note">{tr(values.notice)}</p>}{values?.blocked?<p className="score-blocked">{tr(values.reason)||tr("Scores blocked: declare field semantics and units.")}</p>:!values?<p>{tr("Metrics are not available for this frame.")}</p>:<><div className="metric-grid">{primary.filter(k=>visible.includes(k)).map(metric)}{visible.filter(k=>k.endsWith('Count')).map(metric)}</div><details><summary>{language==='zh'?'更多指标':'More metrics'}</summary><div className="metric-grid">{values.nearSurfaceDomain&&<p>{tr(values.nearSurfaceDomain)}<br/>{tr("Band: ")}{values.effectiveBand?.toPrecision(4)} {unit}</p>}{visible.filter(k=>!primary.includes(k)&&!k.endsWith('Count')).map(metric)}</div></details></>}</aside>;
+}
