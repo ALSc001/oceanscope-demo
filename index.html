@@ -1,0 +1,12 @@
+<!doctype html><html lang="en" translate="no"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="Explore ocean waves, cross sections, SDF predictions and velocity fields in the OceanScope research demonstration."/><meta name="google" content="notranslate"/><title>OceanScope — Public Research Demo</title>
+<style>body{margin:0;background:#f4f7fa;color:#18374d;font-family:system-ui,sans-serif}.startup-card{max-width:780px;margin:48px auto;padding:28px;background:white;border:1px solid #d8e4ec;border-radius:12px;line-height:1.7}.startup-card a{color:#007f91}</style>
+  <script type="module" crossorigin src="./assets/index-RUJhvCLB.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-oIsiPeH9.css">
+</head><body><div id="root"><section id="startup" class="startup-card" role="status"><h1>OceanScope</h1><p id="startup-message">Loading the research demonstration…</p><a href="?reload=startup">Reload</a><noscript>JavaScript is required.</noscript></section></div>
+<script>
+(()=>{let timer;function report(message){const el=document.getElementById('startup-message');if(el){el.textContent=message;document.getElementById('startup').setAttribute('role','alert')}}
+function failed(){report('Page components failed to load. Please reload.')}
+window.addEventListener('error',failed,true);window.addEventListener('unhandledrejection',failed);
+timer=setTimeout(()=>report('Loading is taking longer than expected. Check your connection or reload.'),12000);
+window.addEventListener('oceanscope-ready',()=>{clearTimeout(timer);window.removeEventListener('error',failed,true);window.removeEventListener('unhandledrejection',failed)},{once:true});})();
+</script></body></html>
